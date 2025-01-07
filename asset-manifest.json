@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/workout-tracker/static/js/main.13c77ade.js",
+    "static/js/419.abdf03a5.js": "/workout-tracker/static/js/419.abdf03a5.js",
+    "favicon.ico": "/workout-tracker/favicon.ico",
+    "index.html": "/workout-tracker/index.html",
+    "favicon-32.png": "/workout-tracker/favicon-32.png",
+    "favicon-16.png": "/workout-tracker/favicon-16.png",
+    "manifest.json": "/workout-tracker/manifest.json",
+    "serve.json": "/workout-tracker/serve.json",
+    "main.13c77ade.js.map": "/workout-tracker/static/js/main.13c77ade.js.map",
+    "419.abdf03a5.js.map": "/workout-tracker/static/js/419.abdf03a5.js.map"
+  },
+  "entrypoints": [
+    "static/js/419.abdf03a5.js",
+    "static/js/main.13c77ade.js"
+  ]
+}
