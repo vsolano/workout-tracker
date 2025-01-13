@@ -1,0 +1,98 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    color: #5a5a5a;
+}
+
+.exercise-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Adjust column width */
+th, td {
+    min-width: 120px; /* Adjusted for better spacing */
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Shading for different workout days */
+.day-shade-1 {
+    background-color: #e8f5e9;
+}
+
+.day-shade-2 {
+    background-color: #f1f8e9;
+}
+
+.day-shade-3 {
+    background-color: #e3f2fd;
+}
+
+.day-shade-4 {
+    background-color: #fce4ec;
+}
+
+/* Responsive design for mobile screens */
+@media (max-width: 600px) {
+    .exercise-card {
+        margin: 10px;
+    }
+
+    button, input[type="text"], input[type="number"], input[type="date"], select {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    table {
+        display: block;
+        overflow-x: auto;
+    }
+}
