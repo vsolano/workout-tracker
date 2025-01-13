@@ -1,9 +1,14 @@
+<<<<<<< HEAD
 import React, { useState, useCallback } from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
 import RestTimer from './RestTimer';
 
 const ExerciseList = ({ exercises, removeExercise, addSet, updateSet, removeSet }) => {
     const [activeTimers, setActiveTimers] = useState({});
 
+<<<<<<< HEAD
     const handleStartTimer = useCallback((exerciseId) => {
         try {
             setActiveTimers(prev => ({ ...prev, [exerciseId]: Date.now() }));
@@ -11,18 +16,31 @@ const ExerciseList = ({ exercises, removeExercise, addSet, updateSet, removeSet 
             console.error("Error starting timer: ", error);
         }
     }, []);
+=======
+    const handleStartTimer = (exerciseId) => {
+        setActiveTimers(prev => ({ ...prev, [exerciseId]: Date.now() }));
+    };
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
 
     const dateColorMap = {};
     const colors = ['day-shade-1', 'day-shade-2', 'day-shade-3', 'day-shade-4'];
     let colorIndex = 0;
 
+<<<<<<< HEAD
     const getDayColorClass = useCallback((date) => {
+=======
+    const getDayColorClass = (date) => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         if (!dateColorMap[date]) {
             dateColorMap[date] = colors[colorIndex % colors.length];
             colorIndex++;
         }
         return dateColorMap[date];
+<<<<<<< HEAD
     }, [dateColorMap, colors, colorIndex]);
+=======
+    };
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
 
     return (
         <div>

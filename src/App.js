@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 import React, { useState, useCallback } from 'react';
 import ExerciseList from './components/ExerciseList';
 import VolumeSummary from './components/VolumeSummary';
 import useLocalStorage from './hooks/useLocalStorage';
 import './App.css';
+=======
+import React, { useState } from 'react';
+import ExerciseList from './src/components/ExerciseList';
+import VolumeSummary from './src/components/VolumeSummary';
+import useLocalStorage from './src/hooks/useLocalStorage';
+import './src/App.css';
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
 import { saveAs } from 'file-saver';
 import * as XLSX from 'xlsx';
 
@@ -15,12 +23,22 @@ const App = () => {
     const [exercises, setExercises] = useLocalStorage('exercises', []);
     const [savedWorkouts, setSavedWorkouts] = useLocalStorage('savedWorkouts', {});
 
+<<<<<<< HEAD
     const startNewWorkout = useCallback(() => {
         setIsCreatingWorkout(true);
         setIsLoadingWorkout(false);
     }, []);
 
     const resetApp = useCallback(() => {
+=======
+    const startNewWorkout = () => {
+        setExercises([]);
+        setIsCreatingWorkout(true);
+        setIsLoadingWorkout(false);
+    };
+
+    const resetApp = () => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         setExercises([]);
         setSavedWorkouts({});
         setNewExerciseName('');
@@ -28,9 +46,15 @@ const App = () => {
         setWorkoutName('');
         setIsCreatingWorkout(false);
         setIsLoadingWorkout(false);
+<<<<<<< HEAD
     }, [setExercises, setSavedWorkouts]);
 
     const addExercise = useCallback(() => {
+=======
+    };
+
+    const addExercise = () => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         const lastExercise = exercises.find(ex => ex.name === newExerciseName);
         const exercise = {
             id: Date.now(),
@@ -46,6 +70,7 @@ const App = () => {
                 reps: 0
             }))
         };
+<<<<<<< HEAD
         setExercises(prevExercises => [...prevExercises, exercise]);
         setNewExerciseName('');
         setNewMuscleGroup('');
@@ -56,6 +81,18 @@ const App = () => {
     }, [exercises, setExercises]);
 
     const addSet = useCallback((exerciseId) => {
+=======
+        setExercises([...exercises, exercise]);
+        setNewExerciseName('');
+        setNewMuscleGroup('');
+    };
+
+    const removeExercise = (id) => {
+        setExercises(exercises.filter(ex => ex.id !== id));
+    };
+
+    const addSet = (exerciseId) => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         setExercises(exercises.map(ex => {
             if (ex.id === exerciseId) {
                 const lastSet = ex.sets[ex.sets.length - 1];
@@ -66,9 +103,15 @@ const App = () => {
             }
             return ex;
         }));
+<<<<<<< HEAD
     }, [exercises, setExercises]);
 
     const updateSet = useCallback((exerciseId, setId, field, value) => {
+=======
+    };
+
+    const updateSet = (exerciseId, setId, field, value) => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         setExercises(exercises.map(ex => {
             if (ex.id === exerciseId) {
                 const updatedSets = ex.sets.map(set => {
@@ -83,9 +126,15 @@ const App = () => {
             }
             return ex;
         }));
+<<<<<<< HEAD
     }, [exercises, setExercises]);
 
     const removeSet = useCallback((exerciseId, setId) => {
+=======
+    };
+
+    const removeSet = (exerciseId, setId) => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         setExercises(exercises.map(ex => {
             if (ex.id === exerciseId) {
                 return {
@@ -95,6 +144,7 @@ const App = () => {
             }
             return ex;
         }));
+<<<<<<< HEAD
     }, [exercises, setExercises]);
 
     const saveWorkout = useCallback(() => {
@@ -111,6 +161,20 @@ const App = () => {
     }, [setExercises]);
 
     const handleWorkoutSelection = useCallback((name) => {
+=======
+    };
+
+    const saveWorkout = () => {
+        setSavedWorkouts(prev => ({ ...prev, [workoutName]: exercises }));
+    };
+
+    const loadWorkout = () => {
+        setIsLoadingWorkout(true);
+        setExercises([]); // Clear previous exercises
+    };
+
+    const handleWorkoutSelection = (name) => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         const savedExercises = savedWorkouts[name].map(ex => {
             const lastSets = ex.sets.slice(-3);
             const newSets = lastSets.map((set, index) => ({
@@ -125,9 +189,15 @@ const App = () => {
         });
         setExercises(savedExercises);
         setIsLoadingWorkout(false);
+<<<<<<< HEAD
     }, [savedWorkouts, setExercises]);
 
     const exportToExcel = useCallback(() => {
+=======
+    };
+
+    const exportToExcel = () => {
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
         const data = exercises.map(ex => ({
             Date: new Date(ex.date).toLocaleDateString(),
             'Muscle Group': ex.muscleGroup,
@@ -143,6 +213,7 @@ const App = () => {
         const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
         const blob = new Blob([excelBuffer], { type: 'application/octet-stream' });
         saveAs(blob, 'workout_tracker.xlsx');
+<<<<<<< HEAD
     }, [exercises]);
 
     const handleEndWorkout = useCallback(() => {
@@ -150,6 +221,14 @@ const App = () => {
         // Keep the exercises for volume summary
         setIsCreatingWorkout(false);
     }, [exportToExcel]);
+=======
+    };
+
+    const handleEndWorkout = () => {
+        exportToExcel();
+        startNewWorkout();
+    };
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
 
     return (
         <div>
@@ -228,3 +307,7 @@ const App = () => {
 };
 
 export default App;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4353750def69b51e53ff5b530195d545a5366b45
